@@ -68,6 +68,23 @@ void print_postorder(struct node *node) {
     printf("%d ", node->data);
 }
 
+// mirror the tree
+
+void mirror(struct node *node) {
+    if (node == NULL) {
+        return;
+    } else {
+        struct node *temp;
+
+        mirror(node->left);
+        mirror(node->right);
+
+        temp = node->left;
+        node->left = node->right;
+        node->right = temp;
+    }
+}
+
 int main() {
     insert(10);
     insert(5);
@@ -81,6 +98,25 @@ int main() {
     print_inorder(root);
     printf("\n");
     
+        printf("Preorder: ");
+        print_preorder(root);
+        printf("\n");
+
+        printf("Postorder: ");
+        print_postorder(root);
+        printf("\n");
+
+        // use mirror function
+
+        mirror(root);
+
+        // display mirror tree
+        printf("Mirror tree: \n");
+
+        printf("Inorder: ");
+        print_inorder(root);
+        printf("\n");
+
         printf("Preorder: ");
         print_preorder(root);
         printf("\n");

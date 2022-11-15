@@ -124,7 +124,7 @@ int main()
     root = insert(root, 30);
     root = insert(root, 40);
     root = insert(root, 50);
-    root = insert(root, 25);
+    root = insert(root, 5);
     inorder(root);
     return 0;
 }
